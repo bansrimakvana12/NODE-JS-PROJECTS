@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add Record</title>
+    </head>
+    <body>
+        <div align="center">
+            <h2>Add Record</h2>
+            <form action="/insertRecord" method="post"
+                enctype="multipart/form-data">
+                <table border="1">
+                    <tr>
+                        <td>Types of movie :- </td>
+                        <td>
+                            <select name="movie">
+                                <option value>---select movie---</option>
+                                <% movie =
+                                ["gujrati","bollywood","hollywood","hindi"]
+                                movie.map((movie)=>{
+
+                                %>
+                                <option value="<%= movie %>"><%= movie %></option>
+                                <% }) %>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Movie name :- </td>
+                        <td><input type="text" name="moviename"></td>
+                    </tr>
+                    <tr>
+                        <td>Movie intro :- </td>
+                        <td><input type="text" name="movieintro"></td>
+                    </tr>
+                    <tr>
+                        <td>Movie price :- </td>
+                        <td><input type="text" name="movieprice"></td>
+                    </tr>
+                    <tr>
+                        <td>Movie picture :- </td>
+                        <td><input type="file" name="image"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit"></td>
+                    </tr>
+                </table>
+            </form>
+            <a href="/viewrecord">View</a>
+        </div>
+    </body>
+</html>
