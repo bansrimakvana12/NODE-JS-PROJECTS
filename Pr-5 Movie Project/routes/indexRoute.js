@@ -2,7 +2,7 @@ const express = require('express');
 
 const routes = express.Router();
 
-const { formPage, addRecord, viewData, deleteData, editrecord } = require('../controllers/CrudController');
+const { formPage, addRecord, viewData, deleteRecord, editRecord, updateRecord } = require('../controllers/CrudController');
 
 const multer = require('multer');
 
@@ -20,9 +20,10 @@ const upload = multer({ storage: st }).single('image')
 
 routes.get('/', formPage);
 routes.post('/insertRecord', upload, addRecord);
-routes.get('/viewrecord', viewData)
-routes.get('/deleterecord', deleteData)
-routes.get('/editRecord', editrecord)
+routes.get('/viewrecord', viewData);
+routes.get('/deleteRecord', deleteRecord);
+routes.get('/editRecord', editRecord);
+routes.post('/updateRecord', upload, updateRecord);
 
 module.exports  = upload;
 
