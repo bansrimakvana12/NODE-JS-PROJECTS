@@ -66,17 +66,16 @@ const editRecord = async (req, res) => {
 
 const updateRecord = async (req, res) => {
     try {
-        const { editid, name, email, password, gender, hobby, city } = req.body;
+        const { editid, movie, moviename, movieintro, movieprice,  } = req.body;
         if (req.file) {
             let single = await UserModel.findById(editid);
             fs.unlinkSync(single.image);
             await UserModel.findByIdAndUpdate(editid, {
-                name: name,
-                email: email,
-                password: password,
-                gender: gender,
-                hobby: hobby,
-                city: city,
+                movie: movie,
+                moviename: moviename,
+                movieintro: movieintro,
+                movieprice: movieprice,
+               
                 image: req.file.path
             })
             console.log("record update");
@@ -84,12 +83,10 @@ const updateRecord = async (req, res) => {
         } else {
             let single = await UserModel.findById(editid);
             await UserModel.findByIdAndUpdate(editid, {
-                name: name,
-                email: email,
-                password: password,
-                gender: gender,
-                hobby: hobby,
-                city: city,
+                movie: movie,
+                moviename: moviename,
+                movieintro: movieintro,
+                movieprice: movieprice,
                 image: single.image
             })
             console.log("record update");
