@@ -8,6 +8,8 @@ const db = require('./config/db');
 
 app.set('view engine', 'ejs');
 
+
+
 const passport = require('passport');
 
 const passportLocal = require('./config/passportLocal');
@@ -29,6 +31,9 @@ app.use(passport.setUser);
 
 app.use(express.urlencoded());
 
+const path = require('path');
+
+app.use('/',express.static(path.join(__dirname,'/public')));
 app.use('/', (require('./routes/indexRoute')));
 
 app.listen(port, (err) => {

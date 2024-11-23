@@ -14,6 +14,11 @@ const dashboardPage = (req, res) => {
 const registerPage = (req, res) => {
     return res.render('register');
 }
+
+const viewblogpage = (req,res) => {
+    return res.render('viewblog')
+}
+
 const registerUser = async (req, res) => {
     try {
         const { name, email, password } = req.body;
@@ -30,6 +35,8 @@ const registerUser = async (req, res) => {
 
     }
 }
+
+
 const logout = (req, res) => {
     req.logout((err) => {
         if (err) {
@@ -39,6 +46,7 @@ const logout = (req, res) => {
         return res.redirect('/');
     });
 }
+
 module.exports = {
-    loginPage, loginUser, dashboardPage, registerUser, registerPage, logout
+    loginPage, loginUser, dashboardPage, registerUser, registerPage, logout , viewblogpage ,
 }
