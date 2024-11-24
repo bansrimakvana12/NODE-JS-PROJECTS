@@ -75,11 +75,10 @@ const updateRecord = async (req, res) => {
                 moviename: moviename,
                 movieintro: movieintro,
                 movieprice: movieprice,
-               
                 image: req.file.path
             })
             console.log("record update");
-            return res.redirect('/view');
+            return res.redirect('/viewrecord');
         } else {
             let single = await UserModel.findById(editid);
             await UserModel.findByIdAndUpdate(editid, {
@@ -90,7 +89,7 @@ const updateRecord = async (req, res) => {
                 image: single.image
             })
             console.log("record update");
-            return res.redirect('/view');
+            return res.redirect('/viewrecord');
         }
     } catch (err) {
         console.log(err);
