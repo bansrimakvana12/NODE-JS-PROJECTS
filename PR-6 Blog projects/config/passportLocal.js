@@ -2,6 +2,8 @@ const passport = require('passport');
 
 const passportLocal = require('passport-local').Strategy;
 
+const addModal = require('../models/addModal');
+
 const UserModel = require('../models/UserModel');
 
 passport.use(new passportLocal({

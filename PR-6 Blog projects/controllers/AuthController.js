@@ -1,4 +1,7 @@
+const addModal = require('../models/addModal');
+
 const UserModel = require('../models/UserModel');
+
 const loginPage = (req, res) => {
     if (res.locals.users) {
         return res.redirect('dashboard')
@@ -17,6 +20,10 @@ const registerPage = (req, res) => {
 
 const viewblogpage = (req,res) => {
     return res.render('viewblog')
+}
+
+const addblogPage = (req,res) => {
+    return res.render('addblog')
 }
 
 const registerUser = async (req, res) => {
@@ -48,5 +55,5 @@ const logout = (req, res) => {
 }
 
 module.exports = {
-    loginPage, loginUser, dashboardPage, registerUser, registerPage, logout , viewblogpage ,
+    loginPage, loginUser, dashboardPage, registerUser, registerPage, logout , viewblogpage , addblogPage
 }

@@ -1,14 +1,12 @@
 const express = require('express');
 
-const port = 9000;
+const port = 8000;
 
 const app = express();
 
 const db = require('./config/db');
 
 app.set('view engine', 'ejs');
-
-
 
 const passport = require('passport');
 
