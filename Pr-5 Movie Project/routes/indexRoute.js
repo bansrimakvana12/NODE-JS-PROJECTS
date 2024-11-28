@@ -19,8 +19,10 @@ const st = multer.diskStorage({
 const upload = multer({ storage: st }).single('image')
 
 routes.get('/', formPage);
+
 routes.post('/insertRecord', upload, addRecord);
 routes.get('/viewrecord', viewData);
+
 routes.get('/deleteRecord', deleteRecord);
 routes.get('/editRecord', editRecord);
 routes.post('/updateRecord', upload, updateRecord);

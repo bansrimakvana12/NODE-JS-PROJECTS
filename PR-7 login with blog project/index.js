@@ -1,12 +1,10 @@
-const express = require('express');
+const express=require('express')
+const port=9000
+const app=express()
+const db = require('./config/db')
+const path = require('path')
 
-const port = 8000;
-
-const app = express();
-
-const db = require('./config/db');
-
-app.set('view engine', 'ejs');
+app.set('view engine','ejs')
 
 const passport = require('passport');
 
@@ -15,7 +13,7 @@ const passportLocal = require('./config/passportLocal');
 const session = require('express-session');
 
 app.use(session({
-    secret: 'rnw4',
+    secret: 'rnw3',
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -27,17 +25,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setUser);
 
-app.use(express.urlencoded());
+app.use(express.urlencoded())
 
-const path = require('path');
+app.use('/uploads',express.static(path.join(__dirname,'uploads')))
 
-app.use('/',express.static(path.join(__dirname,'/public')));
-app.use('/', (require('./routes/indexRoute')));
+app.use('/',require('./routes/indexroutes'))
 
-app.listen(port, (err) => {
+app.listen(port,(err)=>{
     if (err) {
         console.log(err);
-        return false;
     }
-    console.log(`server is start on port :- ${port}`);
+    console.log('server is runing',port);
 })

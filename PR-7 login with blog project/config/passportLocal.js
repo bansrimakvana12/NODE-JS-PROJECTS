@@ -2,8 +2,6 @@ const passport = require('passport');
 
 const passportLocal = require('passport-local').Strategy;
 
-const addModal = require('../models/addModal');
-
 const UserModel = require('../models/UserModel');
 
 passport.use(new passportLocal({
@@ -44,11 +42,10 @@ passport.checkUser = (req, res, next) => {
 
 passport.setUser = (req, res, next) => {
     if (req.isAuthenticated()) {
-        res.locals.users = req.user
+        res.locals.user = req.user
     }
     return next();
 }
-
 
 
 module.exports = passport;
