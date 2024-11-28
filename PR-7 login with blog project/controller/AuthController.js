@@ -142,6 +142,10 @@ const update = async (req, res) => {
 }
 
 const logout = (req, res) => {
+    req.logout((err)=>{
+        console.log(err);
+        return false;
+    })
     return res.redirect('/');
 }
 
